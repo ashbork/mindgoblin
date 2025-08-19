@@ -13,7 +13,7 @@ const getSheets = async () => {
 
 const transformSheets = (sheets) => {
   return sheets.map((sheet) => ({
-    name: sheet.name,
+    name: sheet.name.replace("Hot Dog", "Hot-Dog"),
     image: sheet.image_uris.normal,
     id: new Number(sheet.collector_number),
   }));
@@ -21,3 +21,4 @@ const transformSheets = (sheets) => {
 
 const sheets = await getSheets();
 console.log(JSON.stringify(transformSheets(sheets.data)));
+export {};
