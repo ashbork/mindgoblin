@@ -1,35 +1,45 @@
 <script lang="ts">
   import stickerSheets from "../data/sticker-sheets.json";
-  import { sortByVowelCount } from "./sticker-score";
-
-  let pickedOptions = $state<number[]>([]);
+  import { getOptimalStickerSheets } from "./sticker-score";
+  import { appState } from "./store.svelte";
+  const optimal = getOptimalStickerSheets()
+  const optimalExceptLast = optimal.slice(0,9)
 
   const setOptimalStickerSheets = () => {
-    const sheets = [...stickerSheets]
-    const sortedSheets = sheets.sort(sortByVowelCount).reverse();
-
-    pickedOptions = sortedSheets.slice(0, 9).map(({ id }) => id);
+    appState.pickedOptions = optimal.map(({id})=>id)
   }
 </script>
 
 <div>
-<h2>Sheets</h2>
-
 <button onclick={setOptimalStickerSheets}>Set optimal sheets</button>
+
+<details>
+  <summary>Customise stickers ({appState.pickedOptions.length} picked)</summary>
 <ol>
   {#each stickerSheets as sheet, index}
     <li>
-      <label>
+      <label class={optimalExceptLast.includes(sheet) ? "optimal-sheet" : ""}>
         <input
           type="checkbox"
           name="sticker-sheets"
           value={index + 1}
-          bind:group={pickedOptions}
+          bind:group={appState.pickedOptions}
         />
         {sheet.name}
       </label>
     </li>
   {/each}
 </ol>
-
+</details>
 </div>
+
+<style>
+  ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .optimal-sheet{
+    text-decoration: underline;
+  }
+</style>

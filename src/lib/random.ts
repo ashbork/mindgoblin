@@ -8,8 +8,11 @@ export const pickN = <T>(collection: T[], n: number): T[] => {
   const indices: number[] = [];
 
   while (indices.length < n) {
-    if (!indices.includes(randomInt(n))) {
-      indices.push(n);
+    const rand = randomInt(collection.length);
+    console.log(rand);
+
+    if (!indices.includes(rand)) {
+      indices.push(rand);
     }
   }
 
@@ -17,5 +20,5 @@ export const pickN = <T>(collection: T[], n: number): T[] => {
 };
 
 export const randomInt = (max: number): number => {
-  return Math.random() * max;
+  return Math.floor(Math.random() * max);
 };

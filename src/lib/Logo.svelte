@@ -1,41 +1,51 @@
 <script lang="ts">
-  import { sineOut } from 'svelte/easing';
+  import { circOut } from 'svelte/easing';
   import { names} from './all-names'
+  import { pickN } from './random';
 
-  const reducedNames = names.slice(0,10)
+  const [finalName, ...restNames] = pickN(names.map(name => name.toLocaleLowerCase()), 10)
 
   function scroll(node: HTMLElement, params?: { delay?: number, duration?: number, easing?: (t: number) => number }){
     return {
 			delay: params?.delay || 0,
-			duration: params?.duration || 600,
-			easing: params?.easing || sineOut,
+			duration: params?.duration || 6000,
+			easing: params?.easing || circOut,
 			css: (t: number) => `transform: translateY(calc(${-t * 100}% + 1lh))`
 		};
   }
 </script>
 
 
-<h1>
+<h1 role="presentation" aria-label="mindgoblin">
   <div class="name-roulette">
     <div in:scroll>
-    {#each reducedNames as name}
-        <span>{name.toLocaleLowerCase()}</span>
-    {/each}
-    <span>mind</span>
+    {#each restNames as name}
+        <span>{name}</span>
+    {/each}<span>
+      {finalName}
+    </span>
     </div>
   </div>
-  <span>goblin</span>
+  <div class="goblin">goblin</div>
 </h1>
 
 
 <style>
+  *{
+    user-select: none;
+  }
+
  h1{
   display: flex;
+  justify-content: center;
+  line-height: 1.4;
  }
 
  .name-roulette{
   height: 1lh;
   overflow: hidden;
+  box-shadow: 0px 50px 29px -20px var(--background-color) inset;
+  background: transparent;
   div {
     display: flex;
     flex-direction: column;
@@ -43,5 +53,10 @@
     /* End result of the scroll transition */
     transform: translateY(calc(-100% + 1lh));
   }
+ }
+
+ .goblin{
+  place-self: center;
+  flex-basis: 50%;
  }
 </style>

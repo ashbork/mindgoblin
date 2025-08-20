@@ -1,4 +1,5 @@
 import type { StickerSheet } from "../types/sticker-sheet";
+import stickerSheets from "../data/sticker-sheets.json";
 
 const VOWELS = "aeiouy";
 
@@ -30,4 +31,11 @@ export const sortByVowelCount = (
   const vowelsInB = getBestVowelCount(sheetB);
 
   return vowelsInA > vowelsInB ? 1 : vowelsInA === vowelsInB ? 0 : -1;
+};
+
+export const getOptimalStickerSheets = (count = 10) => {
+  const sheets = [...stickerSheets];
+  const sortedSheets = sheets.sort(sortByVowelCount).reverse();
+
+  return sortedSheets.slice(0, count);
 };
