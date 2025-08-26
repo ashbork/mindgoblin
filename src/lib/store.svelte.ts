@@ -1,7 +1,7 @@
-import { getOptimalStickerSheets } from "./sticker-score";
+import { getOptimalStickerSheets } from './sticker-score';
 
 const optimal = getOptimalStickerSheets();
 
 export const appState = $state({
-  pickedOptions: optimal.map(({ id }) => id),
+	pickedOptions: optimal.map(({ id }) => id)
 });
