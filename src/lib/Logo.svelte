@@ -8,7 +8,7 @@
   function scroll(node: HTMLElement, params?: { delay?: number, duration?: number, easing?: (t: number) => number }){
     return {
 			delay: params?.delay || 0,
-			duration: params?.duration || 6000,
+			duration: params?.duration || 1200,
 			easing: params?.easing || circOut,
 			css: (t: number) => `transform: translateY(calc(${-t * 100}% + 1lh))`
 		};
