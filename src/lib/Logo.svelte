@@ -26,16 +26,16 @@
 </script>
 
 <h1 role="presentation" aria-label="mindgoblin">
-  <div class="name-roulette">
-    <div in:scroll>
+  <span class="name-roulette">
+    <span in:scroll>
       {#each restNames as name}
         <span>{name}</span>
       {/each}<span>
         {finalName}
       </span>
-    </div>
-  </div>
-  <div class="goblin">goblin</div>
+    </span>
+  </span>
+  <span class="goblin">goblin</span>
 </h1>
 
 <style>
@@ -54,7 +54,8 @@
     overflow: hidden;
     box-shadow: 0px 50px 29px -20px var(--background-color) inset;
     background: transparent;
-    div {
+
+    span {
       display: flex;
       flex-direction: column;
       text-align: end;
