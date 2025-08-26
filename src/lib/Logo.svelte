@@ -19,7 +19,7 @@
 <h1 role="presentation" aria-label="mindgoblin">
   <div class="name-roulette">
     <div in:scroll>
-    {#each restNames as name}
+    {#each restNames as name (name)}
         <span>{name}</span>
     {/each}<span>
       {finalName}
