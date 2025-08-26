@@ -40,8 +40,15 @@
   .cards {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) and (orientation: portrait) {
+    .cards {
+      flex-direction: column;
+    }
   }
 
   .randomizer {

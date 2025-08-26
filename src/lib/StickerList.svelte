@@ -49,6 +49,13 @@
     gap: 10px;
     list-style-position: inside;
   }
+
+  @media (max-width: 768px) {
+    ol {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   .optimal-sheet {
     text-decoration: underline;
   }
@@ -57,4 +64,3 @@
     margin-bottom: 1rem;
   }
 </style>
-
