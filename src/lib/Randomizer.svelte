@@ -22,11 +22,11 @@
 
 <div class="wrapper">
 	<div class="cards">
-		{#each rolledCards as card (card.id)}
+		{#each rolledCards as card}
 			<StickerCard {card}></StickerCard>
 		{/each}
 	</div>
-	<button onclick={rollNewCards}> Randomize </button>
+	<button onclick={rollNewCards} class="randomizer"> Randomize </button>
 </div>
 
 <style>
@@ -37,6 +37,19 @@
 
 	.cards {
 		display: flex;
+		justify-content: center;
+		align-items: center;
 		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	@media (max-width: 768px) and (orientation: portrait) {
+		.cards {
+			flex-direction: column;
+		}
+	}
+
+	.randomizer {
+		margin-bottom: 1rem;
 	}
 </style>

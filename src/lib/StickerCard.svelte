@@ -20,5 +20,12 @@
 	img {
 		width: 200px;
 		border-radius: 10px;
+		margin-bottom: 0.5rem;
+	}
+
+	@media (max-width: 768px) {
+		img {
+			width: 150px;
+		}
 	}
 </style>
