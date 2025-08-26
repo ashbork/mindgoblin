@@ -1,18 +1,18 @@
 <script lang="ts">
-  import Logo from './lib/Logo.svelte';
-  import Randomizer from './lib/Randomizer.svelte';
-  import StickerList from './lib/StickerList.svelte';
+	import Logo from './lib/Logo.svelte';
+	import Randomizer from './lib/Randomizer.svelte';
+	import StickerList from './lib/StickerList.svelte';
 </script>
 
-<Logo/>
+<Logo />
 <main class="layout">
-    <Randomizer/>
-  <StickerList />
+	<Randomizer />
+	<StickerList />
 </main>
 
 <style>
-  .layout{
-    display: flex;
-    flex-direction: column;
-  }
+	.layout {
+		display: flex;
+		flex-direction: column;
+	}
 </style>

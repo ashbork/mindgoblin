@@ -68,4 +68,3 @@
     place-self: center;
     flex-basis: 50%;
   }
-</style>

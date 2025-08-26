@@ -1,22 +1,21 @@
-const SCRYFALL_ENDPOINT =
-  "https://api.scryfall.com/cards/search?q=set:sunf&order=set";
+const SCRYFALL_ENDPOINT = 'https://api.scryfall.com/cards/search?q=set:sunf&order=set';
 
 const getSheets = async () => {
-  const response = await fetch(SCRYFALL_ENDPOINT);
+	const response = await fetch(SCRYFALL_ENDPOINT);
 
-  if (!response.ok) {
-    console.error(response.status);
-  }
+	if (!response.ok) {
+		console.error(response.status);
+	}
 
-  return response.json();
+	return response.json();
 };
 
 const transformSheets = (sheets) => {
-  return sheets.map((sheet) => ({
-    name: sheet.name.replace("Hot Dog", "Hot-Dog"),
-    image: sheet.image_uris.normal,
-    id: new Number(sheet.collector_number),
-  }));
+	return sheets.map((sheet) => ({
+		name: sheet.name.replace('Hot Dog', 'Hot-Dog'),
+		image: sheet.image_uris.normal,
+		id: new Number(sheet.collector_number)
+	}));
 };
 
 const sheets = await getSheets();
