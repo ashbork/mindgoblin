@@ -10,12 +10,10 @@
   }
 </script>
 
-<div>
-<button onclick={setOptimalStickerSheets}>Set optimal sheets</button>
-
-<details>
-  <summary>Customise stickers ({appState.pickedOptions.length} picked)</summary>
-<ol>
+  <details>
+    <summary>Customise stickers ({appState.pickedOptions.length} picked)</summary>
+    <button onclick={setOptimalStickerSheets}>Set optimal sheets</button>
+    <ol>
   {#each stickerSheets as sheet, index}
     <li>
       <label class={optimalExceptLast.includes(sheet) ? "optimal-sheet" : ""}>
@@ -31,7 +29,6 @@
   {/each}
 </ol>
 </details>
-</div>
 
 <style>
   ol{
