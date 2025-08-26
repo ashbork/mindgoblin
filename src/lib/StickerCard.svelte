@@ -3,23 +3,23 @@
   import RedMana from "./RedMana.svelte";
   import { getBestVowelCount } from "./sticker-score";
 
-const {card} = $props()
+  const { card } = $props();
 </script>
 
 <div in:fade>
-<img src={card.image} alt={`${card.name}'s card art'`}/> 
-<RedMana number={getBestVowelCount(card)}/>
+  <img src={card.image} alt={`${card.name}'s card art'`} />
+  <RedMana number={getBestVowelCount(card)} />
 </div>
 
 <style>
-  div{
+  div {
     display: flex;
     flex-direction: column;
   }
 
-  img{
+  img {
     width: 200px;
     border-radius: 10px;
+    margin-bottom: 0.5rem;
   }
 </style>
-
