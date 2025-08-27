@@ -10,28 +10,27 @@
 	};
 </script>
 
-<div>
+<details>
+	<summary>Customise stickers ({appState.pickedOptions.length} picked)</summary>
 	<button onclick={setOptimalStickerSheets} class="optimal-button">Set optimal sheets</button>
-
-	<details>
-		<summary>Customise stickers ({appState.pickedOptions.length} picked)</summary>
-		<ol>
-			{#each stickerSheets as sheet, index}
-				<li>
-					<label class={optimalExceptLast.includes(sheet) ? 'optimal-sheet' : ''}>
-						<input
-							type="checkbox"
-							name="sticker-sheets"
-							value={index + 1}
-							bind:group={appState.pickedOptions}
-						/>
+	<ol>
+		{#each stickerSheets as sheet, index}
+			<li>
+				<label>
+					<input
+						type="checkbox"
+						name="sticker-sheets"
+						value={index + 1}
+						bind:group={appState.pickedOptions}
+					/>
+					<span class={optimalExceptLast.includes(sheet) ? 'optimal-sheet' : ''}>
 						{sheet.name}
-					</label>
-				</li>
-			{/each}
-		</ol>
-	</details>
-</div>
+					</span>
+				</label>
+			</li>
+		{/each}
+	</ol>
+</details>
 
 <style>
 	ol {
