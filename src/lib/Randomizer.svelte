@@ -30,9 +30,15 @@
 </div>
 
 <style>
+	button {
+		width: fit-content;
+	}
+
 	.wrapper {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
 	}
 
 	.cards {
@@ -40,16 +46,11 @@
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
-		margin-bottom: 2rem;
 	}
 
 	@media (max-width: 768px) and (orientation: portrait) {
 		.cards {
 			flex-direction: column;
 		}
-	}
-
-	.randomizer {
-		margin-bottom: 1rem;
 	}
 </style>
