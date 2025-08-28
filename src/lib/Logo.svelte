@@ -54,6 +54,7 @@
 		overflow: hidden;
 		box-shadow: 0px 50px 29px -20px var(--background-color) inset;
 		background: transparent;
+		color: var(--love);
 
 		span {
 			display: flex;

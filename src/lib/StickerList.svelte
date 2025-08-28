@@ -16,7 +16,7 @@
 	<ol>
 		{#each stickerSheets as sheet, index (sheet.id)}
 			<li>
-				<label>
+				<label class="input-control">
 					<input
 						type="checkbox"
 						name="sticker-sheets"
@@ -33,6 +33,10 @@
 </details>
 
 <style>
+	summary::marker {
+		color: #eb6f92;
+		font-size: 1.3rem;
+	}
 	ol {
 		list-style: none;
 		margin: 0;
@@ -42,6 +46,50 @@
 		gap: 10px;
 		list-style-position: inside;
 	}
+
+	li:hover {
+		background-color: var(--text);
+		color: var(--base);
+	}
+
+	.input-control {
+		display: grid;
+		grid-template-columns: 1em auto;
+		gap: 0.75em;
+	}
+
+	input[type='checkbox'] {
+		appearance: none;
+		font: inherit;
+		color: currentColor;
+		width: 1em;
+		height: 1em;
+		border: 0.15em solid var(--love);
+		border-radius: 0.15em;
+		display: grid;
+		place-content: center;
+	}
+
+	input[type='checkbox']::before {
+		content: '';
+		width: 0.5em;
+		height: 0.5em;
+		color: var(--text);
+		transform: scale(0);
+		transition: 60ms transform ease-in-out;
+		box-shadow: inset 1em 1em var(--love);
+	}
+
+	input[type='checkbox']:checked::before {
+		transform: scale(1);
+	}
+
+	/* NOTE: OPTIONAL /
+	input[type='checkbox']:focus {
+		outline: max(2px, 0.15em) solid currentColor;
+		outline-offset: max(2px, 0.15em);
+	}
+*/
 
 	@media (max-width: 768px) {
 		ol {
@@ -54,6 +102,6 @@
 	}
 
 	.optimal-button {
-		margin-bottom: 1rem;
+		margin: 1rem 0;
 	}
 </style>
