@@ -28,7 +28,7 @@
 <h1 role="presentation" aria-label="mindgoblin">
 	<span class="name-roulette">
 		<span in:scroll>
-			{#each restNames as name}
+			{#each restNames as name, index (restNames[index])}
 				<span>{name}</span>
 			{/each}<span>
 				{finalName}

@@ -14,7 +14,7 @@
 	<summary>Customise stickers ({appState.pickedOptions.length} picked)</summary>
 	<button onclick={setOptimalStickerSheets} class="optimal-button">Set optimal sheets</button>
 	<ol>
-		{#each stickerSheets as sheet, index}
+		{#each stickerSheets as sheet, index (sheet.id)}
 			<li>
 				<label>
 					<input
