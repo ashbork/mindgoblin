@@ -3,10 +3,22 @@
 	line-height: 1.5;
 	font-weight: 400;
 
-	--background-color: #242424;
+	--base: #232136;
+	--subtle: #908caa;
+	--text: #e0def4;
+	--love: #eb6f92;
+	--gold: #f6c177;
+	--rose: #ea9a97;
+	--pine: #3e8fb0;
+	--foam: #9ccfd8;
+	--iris: #c4a7e7;
+	--highlight-low: #2a283e;
+	--highlight-med: #44415a;
+	--highlight-high: #56526e;
+
 	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: var(--background-color);
+	color: var(--text);
+	background-color: var(--base);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -16,12 +28,12 @@
 
 a {
 	font-weight: 500;
-	color: #646cff;
+	color: var(--text);
 	text-decoration: inherit;
 }
 
 a:hover {
-	color: #535bf2;
+	color: var(--love);
 }
 
 body {
@@ -50,13 +62,13 @@ button {
 	font-size: 1em;
 	font-weight: 500;
 	font-family: inherit;
-	background-color: #1a1a1a;
+	background-color: var(--pine);
 	cursor: pointer;
 	transition: border-color 0.25s;
 }
 
 button:hover {
-	border-color: #646cff;
+	border-color: var(--overlay);
 }
 
 button:focus,
@@ -66,15 +78,27 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
 	:root {
-		color: #213547;
-		--background-color: #ffffff;
+		color: var(--text);
+
+		--base: #faf4ed;
+		--subtle: #797593;
+		--text: #575279;
+		--love: #b4637a;
+		--gold: #ea9d34;
+		--rose: #d7827e;
+		--pine: #286983;
+		--foam: #56949f;
+		--iris: #907aa9;
+		--highlight-low: #f4ede8;
+		--highlight-med: #dfdad9;
+		--highlight-high: #cecacd;
 	}
 
 	a:hover {
-		color: #747bff;
+		color: var(--love);
 	}
 
 	button {
-		background-color: #f9f9f9;
+		background-color: var(--base);
 	}
 }

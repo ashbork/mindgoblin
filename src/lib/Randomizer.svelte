@@ -22,7 +22,7 @@
 
 <div class="wrapper">
 	<div class="cards">
-		{#each rolledCards as card}
+		{#each rolledCards as card (card.id)}
 			<StickerCard {card}></StickerCard>
 		{/each}
 	</div>
